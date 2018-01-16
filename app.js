@@ -3,6 +3,18 @@
 
 // 1. Create a web server
 
+const http = require('http');
+
+http.createServer((request, response) => {
+    response.writeHead(200, {'content-Type': 'text/plain'});
+    setInterval(() => {
+        response.write(new Date() + "\n");
+    }, 1000);
+    // response.end('Hello World\n');
+}).listen(1337, '127.0.0.1');
+
+console.log('Server running at http://127.0.0.1:1337/');
+
 // 2. Handle HTTP route GET / and POST / i.e. Home
     // if url == "/" && GET
         // show search
@@ -18,3 +30,5 @@
                 // show error
 
 // 4. Function that handles the reading of files and merge in value
+    // read from file and get a string
+        // merge values into string
